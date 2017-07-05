@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Photo Gallery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <LINK rel="stylesheet" type="text/css" href="css/style.css">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:100,300,400">
+    </head>
+    <body>
+        <header class="container">
+        <h1>
+            Photo Gallery
+        </h1>
+        </header>
+        <p></p>
+             <div class="container">
+                 Photo Gallery for my JS Gallery Page
+             </div>
+                <div class="gallery" align="center">
+            <header>
+                <h3>Simple Photo Gallery with JavaScript</h3>
+            </header>
+            <select onchange="changeGallery(this.value)">
+                <option value ="horror">Horror</option>
+                <option value="music">Musicals</option>
+                <option value="western">Western</option>
+                <option value="mickey">Disney</option>
+            </select>
+            <div class="thumbnails" id="thumbs">
+                <img onmouseover="ShowPreview(this.src)" id="img1" src="images/horror/img1.jpg" alt="" />
+                <img onmouseover="ShowPreview(this.src)" id="img2" src="images/horror/img2.jpg" alt="" />
+                <img onmouseover="ShowPreview(this.src)" id="img3" src="images/horror/img3.jpg" alt="" />
+                <img onmouseover="ShowPreview(this.src)" id="img4" src="images/horror/img4.jpg" alt="" />
+                <img onmouseover="ShowPreview(this.src)" id="img5" src="images/horror/img5.jpg" alt="" />
+            </div>
+            <div class="preview" align="center">
+                <img id="preview" src="images/img1.jpg" alt=""/>
+            </div>
+
+        </div>
+        <script>
+            function ShowPreview(newImage) {
+                //console.log(newImage);
+                var image = document.querySelector("#preview");
+                image.setAttribute('src', newImage.toString());
+            }
+            function changeGallery(filefolder){
+                var gall = document.querySelector("#thumbs").children;
+                for(i= 0;i<gall.length;i++){
+                    gall[i].setAttribute('src', "images/"+filefolder+"/img"+(i+1)+".jpg");
+                    //console.log(gall[i].getAttribute('src'));
+                }
+                //console.log(filefolder);
+            }
+        </script>
+    
+    </body>
+</html>

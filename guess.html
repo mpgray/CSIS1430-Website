@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Gussing Game</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <LINK rel="stylesheet" type="text/css" href="css/style.css">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:100,300,400">
+    </head>
+    <body>
+        <header class="container">
+        <h1>
+            Guessing Game
+        </h1>
+        </header>
+        <p></p>
+             <div class="container">
+                 Let's Play
+             </div>
+        <script>
+                      
+            var numberRan = Math.ceil(Math.random() * 100);
+            var guess = -1;
+            var numGuess = 0;
+            while (guess != numberRan) {  
+                // Game code goes here
+                var guess = prompt("Guess a number between 1 - 100 or hit cancel to stop playing");
+                if (guess === null) {
+                    break;
+                }
+                else if (guess >= 1 && guess <= 100) {
+                    // Now check the difference
+                    if(numberRan > guess){
+                        numGuess++;
+                        alert("The number is higher then " + guess + ". That was guess (" + numGuess + ")");
+                    } else if(numberRan < guess){
+                        numGuess++;
+                        alert("The number is lower then " + guess + ". That was guess (" + numGuess + ")");
+                    } else if(numberRan == guess){
+                        numGuess++;
+                        alert("Good job! The answer was " + numberRan + " It took you " + numGuess + " guesses.");
+                        break;
+                    }                
+                }     
+            }
+            
+            alert("The answer was " + numberRan); 
+
+        </script>
+    </body>
+</html>

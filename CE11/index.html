@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Event Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <LINK rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:100,300,400">
+        <script type="text/javascript">
+        <!--
+            function sayHello() {
+                alert("Hello World");
+            }
+            function over() {
+                document.querySelector("#mousereport").innerHTML = "Mouse Over";
+            }
+
+            function out() {
+                document.querySelector("#mousereport").innerHTML = "Mouse out";
+
+            }
+
+         //-->
+        </script>
+    </head>
+    <body>
+        <header class="container">
+        <h1>
+           Events
+        </h1>
+        </header>
+        <div class="container"  id="mousereport" onmouseover="over()" onmouseout="out()">
+            What is going on here?
+        </div>
+        <p></p>
+             <div class="container">
+              
+            <p>Click the following button and see result</p>
+            <form>
+                <input type="button" onclick="sayHello()" value="Say Hello" />
+            </form>
+            </div>
+            <div class="container">
+                <h6>Question: What is your favorite Color?</h6><br />
+                <input type="radio" onselect="nextQuestion(this.value)" value="0" />Red<br>
+             <input type="radio" onselect="nextQuestion(this.value)" value="1" />Blue
+            </div>
+        <script>
+                            var questions = [ {"question":"What is your favorite drink", "ans1":"Coke", "ans2":"Pepsi", "val1": 1, "val2":0 },
+                              {"question":"What is your favorite drink", "ans1":"Coke", "ans2":"Pepsi", "val1": 1, "val2":0 },
+                              {"question":"What is your favorite drink", "ans1":"Coke", "ans2":"Pepsi", "val1": 1, "val2":0 }, 
+                              {"question":"What is your favorite drink", "ans1":"Coke", "ans2":"Pepsi", "val1": 1, "val2":0 } ];
+            var questionNum= 0;
+            var total = 0;
+            function nextQuestion(ans){
+                total = total+ans;
+                console.log(total);
+                questionspot = document.querySelector("#questions");
+                questString ="<h6>Question "+(questionNum +2)+":</h6>"+
+                             "<p>"+questions[questionNum].question+"</p>"+
+                                "<input type=\"radio\" onselect=\"nextQuestion(this.value)\" value="+questions[questionNum].val1+">"
+                                +questions[questionNum].ans1+"<br>"+
+                            "<input type=\"radio\" onselect=\"nextQuestion(this.value)\" value="+questions[questionNum].val2+">"
+                            +questions[questionNum].ans1;
+                questionspot.innerHTML = questString;
+                questionNum++;
+        } 
+        </script>
+    </body>
+</html>
+
+                
+                

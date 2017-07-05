@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>JS Script Example</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <LINK rel="stylesheet" type="text/css" href="/css/style.css">
+    </head>
+    <body>
+        <div class="container">
+            <script src="sample.js"  type="text/javascript">
+            </script>
+        </div>
+        <script language="javascript" type="text/javascript">
+                function firstFun(money){
+                    var car;
+                    var cost = money;
+                        if(cost > 50000){
+                            car = "BMW";
+                        }else{
+                            car = "Honda";
+                        };
+                    document.write(car + "<br/>");
+                    for( i = 10; i > -1; i --){
+                        console.log(i);
+                        document.write(i + "<br/>");
+                    }
+                    document.write("blast off!!!!<br/>");
+                }
+            
+            firstFun(55000);
+        </script>
+    </body>
+</html>

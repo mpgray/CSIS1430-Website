@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Hangman Game</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <LINK rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:100,300,400">
+    </head>
+    <body>
+        <header class="container">
+        <h1>
+            Hangman Game
+        </h1>
+        </header>
+        <p></p>
+             <div class="container">
+                 Let's Play
+             </div>
+        <script>
+            var words = [
+            "Classical",
+            "Latin",
+            "Trance",
+            "Rap",
+            "Country",
+            "Rock",
+            "Opera",
+            "Pop",
+            "Folk",
+            "Dubstep"
+            ];
+                      
+            var word = words[Math.floor(Math.random() * words.length)];
+            var answerArray = [];
+            for (var i = 0; i < word.length; i++) {
+                answerArray[i] = "_";
+            }
+            var remainingLetters = word.length;
+            while (remainingLetters > 0) {  
+                // Game code goes here
+                // Show the player their progress  
+                alert(answerArray.join(" ")); 
+                // Take input from the player
+                var guess = prompt("Guess a letter, or click Cancel to stop playing.");
+                if (guess === null) {
+                    break;
+                }
+                else if (guess.length !== 1) {    alert("Please enter a single letter.");  } else {
+                // Update the game state with the guess 
+                  for (var j = 0; j < word.length; j++) {
+                    if (word[j] === guess.toUpperCase()) {      answerArray[j] = guess;
+                        remainingLetters--;
+                        guess = guess.toUpperCase();
+                    }
+                    else if (word[j] === guess.toLowerCase()) {      answerArray[j] = guess;
+                        remainingLetters--;
+                        guess = guess.toLowerCase();
+                    }
+                  }
+                }     
+                // Update answerArray and remainingLetters for every correct guess
+            }
+            alert(answerArray.join(" "));alert("Good job! The answer was " + word); 
+
+        </script>
+    </body>
+</html>
